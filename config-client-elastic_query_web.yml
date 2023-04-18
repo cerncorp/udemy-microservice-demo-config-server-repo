@@ -28,6 +28,23 @@ elastic-query-web-client:
 spring:
   thymeleaf:
     cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: 'elastic-query-web-client'
+            client-secret: '{cipher}2c2eaed71a1ad5c668841ce87e2c1eef51b9b0ab82dc6aaf42c0ed21fbf72f9c761d7c3371bb85db2f9d56be172a79e34b53040787741b88b17234b2d06e8b75'
+            authorization-grant-type: authorization_code
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope: openid
+        provider:
+          keycloak:
+            issuerUri: http://localhost:8081/auth/realms/microservices-realm
+
+security:
+  logout-success-url: http://localhost:8184/elastic-query-web-client
+  default-client-registration-id: keycloak
 
 user-config:
   username: test
