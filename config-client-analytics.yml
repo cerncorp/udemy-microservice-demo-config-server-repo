@@ -12,8 +12,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:9091/auth/realms/myrealm
-          jwk-set-uri: http://localhost:9091/auth/realms/myrealm/protocol/openid-connect/certs
+          issuer-uri: http://localhost:9091/auth/realms/microservice-realm
+          jwk-set-uri: http://localhost:9091/auth/realms/microservice-realm/protocol/openid-connect/certs
   jpa:
     open-in-view: false
     show-sql: true
@@ -28,12 +28,19 @@ spring:
         order_updates: true
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=analytics&binaryTransfer=true&reWriteBatchedInserts=true
-#    username: postgres
-#    password: admin
     username: myuser
     password: '{cipher}346fcaa6697837057925a3e9cdac08bc0ad2337e5b9b2948c489b3e14ee31510'
     driver-class-name: org.postgresql.Driver
     platform: postgres
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+security:
+  paths-to-ignore: /api-docs
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
