@@ -12,14 +12,6 @@ elastic-query-web-client:
     content-type: 'application/vnd.api.v1+json'
     accept-type: 'application/vnd.api.v1+json'
     base-url: 'http://elastic-query-service/elastic-query-service/documents'
-#    service-id: elastic-query-service
-#    instances:
-#      - id: elastic-query-service-1
-#        host: localhost
-#        port: 8183
-#      - id: elastic-query-service-2
-#        host: localhost
-#        port: 8185
   query-by-text:
     method: POST
     uri: "/get-document-by-text"
@@ -44,7 +36,7 @@ spring:
             scope: openid
         provider:
           keycloak:
-            issuerUri: http://keycloak-authorization-server:9091/auth/realms/microservice-realm
+            issuerUri: http://localhost:9091/auth/realms/microservice-realm
 
 security:
   logout-success-url: http://localhost:8185/elastic-query-web-client

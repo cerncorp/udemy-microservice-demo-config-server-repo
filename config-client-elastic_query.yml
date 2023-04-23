@@ -32,8 +32,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak-authorization-server:9091/auth/realms/microservice-realm
-          jwk-set-uri: http://keycloak-authorization-server:9091/auth/realms/microservice-realm/protocol/openid-connect/certs
+          issuer-uri: http://localhost:9091/auth/realms/microservice-realm
+          jwk-set-uri: http://localhost:9091/auth/realms/microservice-realm/protocol/openid-connect/certs
       client:
         registration:
           keycloak:
@@ -42,7 +42,7 @@ spring:
             authorizationGrantType: client_credentials
         provider:
           keycloak:
-            tokenUri: http://keycloak-authorization-server:9091/auth/realms/microservice-realm/protocol/openid-connect/token
+            tokenUri: http://localhost:9091/auth/realms/microservice-realm/protocol/openid-connect/token
   jpa:
     open-in-view: false
     show-sql: true
@@ -71,7 +71,7 @@ elastic-config:
 
 user-config:
   username: test
-  password: '{cipher}2eaf60f36d18bab6502b33fa762ec016769cbcb22eb9505a7aa5845dcf0fab12' # test12345 , KEY springCloud_Pwd!
+  password: '{cipher}2eaf60f36d18bab6502b33fa762ec016769cbcb22eb9505a7aa5845dcf0fab12' # test1234 , KEY springCloud_Pwd!
   roles: USER
 
 springdoc:
