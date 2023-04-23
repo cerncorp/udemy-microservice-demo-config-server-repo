@@ -7,6 +7,10 @@ server:
     context-path: /kafka-streams-service
 
 spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false #disable to work with discovery-service
   security:
     oauth2:
       resourceserver:
